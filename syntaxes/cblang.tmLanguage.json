@@ -1,0 +1,94 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "cbLang",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "//",
+					"beginCaptures": {
+						"0": {
+							"name": "comment.line"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line"
+			},
+			{
+				"captures": {
+					"0": {
+						"name": "comment"
+					}
+				},
+				"match": "/\\*\\*/",
+				"name": "comment.block.empty"
+			}
+		]
+		},
+		"keywords": {
+			"patterns": [
+				{
+				"name": "keyword.control.cblang",
+				"match": "\\b(with|as|if|else if|else|while|for|return|print|class|function|in)\\b"
+			},
+			{
+				"name": "keyword.other",
+				"match": "\\b(this.)\\b"
+			},
+			{
+				"name": "storage.modifier",
+				"match": "\\b(import|reference|from|include)\\b"
+			},
+			{
+				"name": "storage.type",
+				"match": "\\b(int|float|str)\\b"
+			},
+			{
+				"name": "keyword.operator.logic",
+				"match": "\\b(and|or|not|nor|xor|xno)\\b"
+			},
+			{
+				"name": "keyword.operator",
+				"match": "(\\+\\-\\=\\:)"
+			}
+			]
+		},
+		"variables": {
+			"name": "variable",
+			"match": "^ *[a-zA-Z0-9]+"
+		},
+		"functions": {
+			"name": "entity.name.method",
+			"match": "\\.[a-zA-Z-0-9]+"
+		},
+		"strings": {
+			"name": "string.quoted.double.cblang",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cblang",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.cb"
+}

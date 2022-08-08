@@ -1,0 +1,26 @@
+{
+  "name": "cblang-syntaxhighlighting",
+  "displayName": "cbLang-SyntaxHighlighting",
+  "description": "Syntax Highlighting",
+  "version": "0.0.1",
+  "publisher": "aubergine5678",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cblang",
+      "aliases": ["cbLang", "cblang"],
+      "extensions": [".cb"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cblang",
+      "scopeName": "source.cb",
+      "path": "./syntaxes/cblang.tmLanguage.json"
+    }]
+  }
+}
